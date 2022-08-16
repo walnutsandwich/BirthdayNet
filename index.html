@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> to 珞珞 </title>
+	<link rel="stylesheet" href="cake.css">
+</head>
+<style>
+	.*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background-color: #7bd3f7;
+	}
+
+    #img1{
+    	height: 30%;
+    	position: absolute;
+    	left:15% ;
+    	top:20% ;
+    }
+
+    #img1:hover {
+    	animation: anim 5s infinite;
+    }
+
+    @keyframes anim{
+		from {
+            transform: rotateZ(0);
+        }
+        to {
+            transform: rotateZ(360deg);
+        }
+    }
+
+    #img2{
+    	height: 30%;
+    	position: absolute;
+    	right:15% ;
+    	top:20% ;
+    }
+    #img2:hover {
+    	animation: anim 5s infinite;
+    }
+
+
+    .img3{
+    	height: 10%;
+    	cursor:pointer ;
+    	position: fixed;
+    	/*position: absolute;*/
+/*    	left:5% ;
+    	top:10% ;*/
+    	animation: go 40s infinite;
+    	margin: 0;
+		padding: 0;
+		border: none;
+		z-index: 0;
+    }
+
+	#img6{
+    	height: 10%;
+    	cursor:pointer ;
+    	position: fixed;
+/*    	left:5% ;
+    	top:10% ;*/
+    	animation: go 40s infinite;
+    	margin: 0;
+		padding: 0;
+		border: none;
+		display: none;
+		z-index: 1;
+    }
+
+	@keyframes go { /*定义动画*/
+                0%{ /*等价于from*/
+                    transform: translate3d(0px, 0px, 0px);
+                }
+                25%{
+                    transform: translate3d(1800px, 0px, 0px);
+                }
+                50%{
+                    transform: translate3d(1800px, 800px, 0px);
+                }
+                75%{
+                    transform: translate3d(0px, 800px, 0px);
+                }
+                100%{ /*相当于to*/
+                    transform: translate3d(0px, 0px, 0px);
+                }
+                /*动画结束之后返回原来的位置*/
+            }
+    #img4 {
+        width: 10%;
+        height: 20%;
+    	position: absolute;
+    	left:50% ;
+    	bottom:0% ;
+    	/*background-color: blue;*/
+    	background-image: url("./生日快乐图片/0.jpg");
+    	background-size:100% 100%;
+    	transform: translate(-50%, -50%)
+    }
+
+    #img5{
+    	width: 100px;
+    	height: 100px;
+    	position: absolute;
+    	left:10% ;
+    	top:20% ;
+    	/*background-color: blue;*/
+    	background-image: url("./配图/0.jpg");
+    	background-size:100% 100%;
+/*    	transform: translate(-50%, -50%)*/
+    }
+
+	#img7{
+    	height: 30%;
+    	cursor:pointer ;
+    	position: fixed;
+    	left:15% ;
+    	top:60% ;
+    	margin: 0;
+		padding: 0;
+		border: none;
+		animation: scaleDraw 5s infinite;
+		display: none;
+	    }
+
+	@keyframes scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+            0%{
+                transform: scale(1);  /*开始为原始大小*/
+            }
+            25%{
+                transform: scale(1.1); /*放大1.1倍*/
+            }
+            50%{
+                transform: scale(1);
+            }
+            75%{
+                transform: scale(1.1);
+            }
+        }
+
+	#img8{
+    	height:30%;
+    	cursor:pointer ;
+    	position: fixed;
+    	right:15% ;
+    	top:55% ;
+    	margin: 0;
+		padding: 0;
+		border: none;
+		display: none;
+	    }
+
+    .button1{
+        width:300px;
+        height:300px;
+        position: absolute;
+    	left:50% ;
+    	top:20% ;
+        border-radius:150px;
+        border:1px none #000000;
+        background-image:url("./动态图片/love.gif");
+        background-size:100% 100%;
+        cursor: pointer;
+        transform: translate(-50%, 0)
+        }
+
+</style>
+
+
+
+<body>
+	<audio id="music" src="2.mp3"></audio>
+	<img id="img1" class="img1" src="./动态图片/柴犬.gif" >
+	<img id="img2" class="img2" src="./动态图片/二哈.gif" >
+	<img id="img7" class="img7" src="./动态图片/小埋.gif" >
+	<img id="img8" class="img8" src="./动态图片/生日快乐.gif" >
+	<div id="img4" class="img4" >   </div>
+	<div id="img5" class="img4" >   </div>
+	<button class="button1" onclick="nextp()"> </button>
+	<!-- src="./生日快乐图片/0.jpg" -->
+	<button class="img3" onclick="nextp()" >
+		<img style="width:100px " src="./动态图片/转头.gif" >
+		<!-- <img style="width:100px " src="./动态图片/6.jpg">  -->
+	</button> 
+	<button id ="img6" onclick="nextp()" >
+		<img style="width:100px " src="./动态图片/摇头.gif" >
+		<!-- <img style="width:100px " src="./动态图片/6.jpg">  -->
+	</button> 
+
+	<script type="text/javascript">
+		var i=0;
+
+		var x = window.screen.width;
+		var y = window.screen.height;
+
+		var posx = ['10%','10%','35%','60%','80%','80%','60%']
+		var posy = ['20%','70%','70%','70%','70%','50%','20%']
+
+		function GetRandomNum(Min,Max){   
+			var Range = Max - Min;   
+			var Rand = Math.random();   
+			return parseInt( Min + Math.round(Rand * Range));   
+			}   
+
+		function nextp() {
+			
+			var str;
+			if(i<7){
+				if( i<1){
+					var mp3 = document.getElementById("music");
+					mp3.play();
+				}
+				i=i+1;
+				str1 = "url('./生日快乐图片/"+i+".jpg'"
+				str2 = "url('./配图/"+i+".jpg'"
+				document.getElementById('img4').style.backgroundImage=str1;
+				document.getElementById('img5').style.backgroundImage=str2;
+				document.getElementById('img5').style.left=posx[i-1]; 
+				document.getElementById('img5').style.top=posy[i-1]; 
+				if( i>3 ){
+					// alert("ok");
+					document.getElementById('img1').src="./配图/生日快乐1.png";
+					document.getElementById('img2').src="./配图/生日快乐2.png";
+					document.getElementById('img6').style.display="block";
+					document.getElementById('img7').style.display="block";
+					document.getElementById('img8').style.display="block";
+				}
+			}else{
+				i=1;
+				window.open('./webpage/flower.html');
+			}
+		}
+	</script>
+
+
+
+</body>
+</html>
